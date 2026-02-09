@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -17,10 +18,10 @@ const Footer = () => {
                 <div>
                     <h4 style={{ fontWeight: 700, marginBottom: '20px', textTransform: 'uppercase' }}>Shop</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        <li><a href="/shop?category=Women" style={{ textDecoration: 'none', color: '#121212' }}>Ladies</a></li>
-                        <li><a href="/shop?category=Men" style={{ textDecoration: 'none', color: '#121212' }}>Men</a></li>
-                        <li><a href="/shop?category=Home" style={{ textDecoration: 'none', color: '#121212' }}>Home</a></li>
-                        <li><a href="/shop?category=Beauty" style={{ textDecoration: 'none', color: '#121212' }}>Beauty</a></li>
+                        <li><Link to="/shop?category=Women" style={{ textDecoration: 'none', color: '#121212' }}>Ladies</Link></li>
+                        <li><Link to="/shop?category=Men" style={{ textDecoration: 'none', color: '#121212' }}>Men</Link></li>
+                        <li><Link to="/shop?category=Home" style={{ textDecoration: 'none', color: '#121212' }}>Home</Link></li>
+                        <li><Link to="/shop?category=Beauty" style={{ textDecoration: 'none', color: '#121212' }}>Beauty</Link></li>
                     </ul>
                 </div>
 
@@ -41,7 +42,7 @@ const Footer = () => {
                     <h4 style={{ fontWeight: 700, marginBottom: '20px', textTransform: 'uppercase' }}>Help</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         <li><a href="#" style={{ textDecoration: 'none', color: '#121212' }}>Customer Service</a></li>
-                        <li><a href="/profile" style={{ textDecoration: 'none', color: '#121212' }}>My Profile</a></li>
+                        <li><Link to="/profile" style={{ textDecoration: 'none', color: '#121212' }}>My Profile</Link></li>
                         <li><a href="#" style={{ textDecoration: 'none', color: '#121212' }}>Find a Store</a></li>
                         <li><a href="#" style={{ textDecoration: 'none', color: '#121212' }}>Legal & Privacy</a></li>
                         <li><a href="#" style={{ textDecoration: 'none', color: '#121212' }}>Contact</a></li>
