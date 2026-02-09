@@ -52,6 +52,26 @@ def get_products(
         query = query.filter(Product.price <= max_price)
 
     return query.all()
+    
+@app.get("/suggestions")
+def get_suggestions(q: str = Query(...), db: Session = Depends(get_db)):
+    # Search in name and brand
+    products = db.query(Product).filter(
+        (Product.name.ilike(f"%{q}%")) | (Product.brand.ilike(f"%{q}%"))
+    ).limit(10).all()
+    
+    # Return unique suggestions (combination of name and brand)
+    suggestions = []
+    seen = set()
+    for p in products:
+        if p.brand not in seen:
+            suggestions.append({"type": "brand", "text": p.brand})
+            seen.add(p.brand)
+        if p.name not in seen:
+            suggestions.append({"type": "product", "text": p.name})
+            seen.add(p.name)
+            
+    return suggestions[:8]
 
 @app.get("/products/{product_id}")
 def get_product(product_id: int, db: Session = Depends(get_db)):
