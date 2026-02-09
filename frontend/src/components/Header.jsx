@@ -33,14 +33,12 @@ const Header = ({ cartCount, onSearch }) => {
         e.preventDefault();
         onSearch(searchTerm);
         setShowSuggestions(false);
-        navigate('/shop');
     };
 
     const handleSuggestionClick = (text) => {
         setSearchTerm(text);
         onSearch(text);
         setShowSuggestions(false);
-        navigate('/shop');
     };
 
     return (

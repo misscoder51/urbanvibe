@@ -41,7 +41,12 @@ def get_products(
     query = db.query(Product)
 
     if search:
-        query = query.filter(Product.name.ilike(f"%{search}%"))
+        query = query.filter(
+            (Product.name.ilike(f"%{search}%")) |
+            (Product.brand.ilike(f"%{search}%")) |
+            (Product.category.ilike(f"%{search}%")) |
+            (Product.description.ilike(f"%{search}%"))
+        )
     if category:
         query = query.filter(Product.category == category)
     if type:
